@@ -50,12 +50,12 @@ var filesToCache = [
   "resources/images/common/retina/holiday-list-icon.png",
   "resources/images/common/retina/icon-history-steps.png",
   "resources/images/common/retina/logout-icon.png",
-  "launcher-icon-0-75x.png",
-  "launcher-icon-1-5x.png",
-  "launcher-icon-1x.png",
-  "launcher-icon-2x.png",
-  "launcher-icon-3x.png",
-  "launcher-icon-4x.png"
+  "resources/images/common/icons/launcher-icon-0-75x.png",
+  "resources/images/common/icons/launcher-icon-1-5x.png",
+  "resources/images/common/icons/launcher-icon-1x.png",
+  "resources/images/common/icons/launcher-icon-2x.png",
+  "resources/images/common/icons/launcher-icon-3x.png",
+  "resources/images/common/icons/launcher-icon-4x.png"
 ];
 
 self.addEventListener('install', function(e) {
