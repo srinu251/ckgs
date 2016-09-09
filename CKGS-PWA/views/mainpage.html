@@ -1,0 +1,51 @@
+<div class="logout splash">
+	<div class="wrapper">
+		<!-- header starts -->
+		<header class="master-header" data-ng-include="'views/globalHeader.html'">
+			
+		</header>
+		<!-- header ends -->
+
+		<!-- MAIN_CONTENT starts -->	
+		<div class="main-content">
+			<div class="container">
+				<form class="login-form" style="padding: 50px 30px;">
+				  <div class="form-group">
+				    <label for="wrn">Web Reference Number <span style="color:red">*</span></label>
+				    <input type="text" class="form-control" id="wrn" placeholder="Web Reference Number">
+				  </div>
+
+				  <div class="input-group">
+				    <label for="date">Date of Birth</label>
+		              <input type="text" class="form-control" ng-model="dt" is-open="opened" min-date="minDate" max-date="'2015-06-22'" ng-required="true" close-text="Close" />
+		              <span class="input-group-btn">
+		                <button type="button" class="btn btn-default" ng-click="open($event)"><i class="fa fa-calendar" aria-hidden="true"></i></button>
+		              </span>
+		          </div>
+
+				  <div class="form-group">
+				    <label for="cipn">Current Indian Passport Number</label>
+				    <input type="text" class="form-control" id="cipn" placeholder="Current Indian Passport Number">
+				  </div>
+				  <a ui-sref="home" class="btn btn-primary btn-gradient txt-upper">Continue</a>
+				</form>
+			</div>
+		</div>
+		<!-- MAIN_CONTENT starts -->
+	</div>
+
+	<!-- Footer :: Starts -->
+	<!-- footer starts -->
+		<div class="splash-bg"></div>
+	<!-- footer ends -->
+
+	<!-- Road block pop up starts -->
+	<div id="rate-our-app" class="white-popup-block mfp-hide">
+		<div class="rate-our-app-img"><img src="resources/images/rate-our-app.jpg" alt=""></div>
+		<h4>Rate Our App</h4>
+		<p>If you enjoying using CKGS App, would you mind taking a moment to rate it? It won’t take more than a minute. Thanks for your support!</p>
+		<a href="#" class="btn">Rate Now</a>
+		<a href="#" class="btn gray-btn">Maybe Later</a>
+		<a href="#" class="btn gray-btn mfp-close">No Thanks</a>
+	</div>
+</div>
