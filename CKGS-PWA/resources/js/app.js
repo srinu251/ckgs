@@ -5,86 +5,97 @@ CKGS AngularJS App Main Script
 var ckgs = angular.module('ckgsPWA',[
   'ui.router',
   'ui.bootstrap',
+  'oc.lazyLoad',
   'ckgsPWA.constants',
   'ckgsPWA.directives'
 ]);
 
-ckgs.config(function($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise("/main");
+ckgs.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlRouterProvider) {
+  $urlRouterProvider.otherwise("/login");
     
-    $stateProvider
-    .state('main',{
-      url: "/main",
-      templateUrl: "views/mainpage.html"
-    })
+  $stateProvider
+  .state('login', {
+      url: "/login",
+      templateUrl: "views/mainpage.html",            
+      data: {pageTitle: 'Login'},
+      controller: "LoginController",
+      resolve: {
+      deps: ['$ocLazyLoad', function($ocLazyLoad) {
+        return $ocLazyLoad.load({
+          files: [
+            'resources/js/controllers/ckgs-loginCtrl.js'
+          ] 
+        });
+      }]
+    }
+  })
 
-    .state('home',{
-      url: "/home",
-      templateUrl: "views/home.html"
-    })
+  .state('home',{
+    url: "/home",
+    templateUrl: "views/home.html"
+  })
 
-    .state('track_application_status',{
-      url: "/track_application_status",
-      templateUrl: "views/track_application_status.html"
-    })
+  .state('track_application_status',{
+    url: "/track_application_status",
+    templateUrl: "views/track_application_status.html"
+  })
 
-    .state('track-shipping-status',{
-      url: "/track-shipping-status",
-      templateUrl: "views/track-shipping-status.html"
-    })
+  .state('track-shipping-status',{
+    url: "/track-shipping-status",
+    templateUrl: "views/track-shipping-status.html"
+  })
 
-    .state('faq',{
-      url: "/faq",
-      templateUrl: "views/faq.html"
-    })
+  .state('faq',{
+    url: "/faq",
+    templateUrl: "views/faq.html"
+  })
 
-    .state('feedback',{
-      url: "/feedback",
-      templateUrl: "views/feedback.html"
-    })
+  .state('feedback',{
+    url: "/feedback",
+    templateUrl: "views/feedback.html"
+  })
 
-    .state('complaint',{
-      url: "/complaint",
-      templateUrl: "views/complaints.html"
-    })
+  .state('complaint',{
+    url: "/complaint",
+    templateUrl: "views/complaints.html"
+  })
 
-    .state('privacy-policy',{
-      url: "/privacy-policy",
-      templateUrl: "views/privacyPolicy.html"
-    })
+  .state('privacy-policy',{
+    url: "/privacy-policy",
+    templateUrl: "views/privacyPolicy.html"
+  })
 
-    .state('terms-and-conditions',{
-      url: "/terms-and-conditions",
-      templateUrl: "views/terms-and-conditions.html"
-    })
+  .state('terms-and-conditions',{
+    url: "/terms-and-conditions",
+    templateUrl: "views/terms-and-conditions.html"
+  })
 
-    .state('holiday-list',{
-      url: "/holiday-list",
-      templateUrl: "views/holiday-list.html"
-    })
+  .state('holiday-list',{
+    url: "/holiday-list",
+    templateUrl: "views/holiday-list.html"
+  })
 
-    .state('passport-status-history',{
-      url: "/passport-status-history",
-      templateUrl: "views/passport-status-history.html"
-    })
+  .state('passport-status-history',{
+    url: "/passport-status-history",
+    templateUrl: "views/passport-status-history.html"
+  })
 
-    .state('passport-status-history-received',{
-      url: "/passport-status-history-received",
-      templateUrl: "views/passport-status-history-received.html"
-    })
+  .state('passport-status-history-received',{
+    url: "/passport-status-history-received",
+    templateUrl: "views/passport-status-history-received.html"
+  })
 
-    .state('ckgs-application-center',{
-      url:"/ckgs-application-center",
-      templateUrl: "views/ckgs-application-center.html"
-    })
+  .state('ckgs-application-center',{
+    url:"/ckgs-application-center",
+    templateUrl: "views/ckgs-application-center.html"
+  })
 
-    .state('ckgs-application-location-map',{
-      url: "/ckgs-application-location-map",
-      templateUrl: "views/ckgs-application-location-map.html"
-    })
+  .state('ckgs-application-location-map',{
+    url: "/ckgs-application-location-map",
+    templateUrl: "views/ckgs-application-location-map.html"
+  })
 
-
-  });
+}]);
 
 /* Init global settings and run the app */
 ckgs.run(["$rootScope", "$state", function($rootScope, $state) {
