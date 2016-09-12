@@ -1,14 +1,15 @@
 /***
-Marblesz AngularJS App Main Script
+CKGS AngularJS App Main Script
 ***/
-/* Marblesz App */
-var passportApp = angular.module('passportApp',[
+/* CKGS App */
+var ckgs = angular.module('ckgsPWA',[
   'ui.router',
   'ui.bootstrap',
-  'passportApp.constants'
+  'ckgsPWA.constants',
+  'ckgsPWA.directives'
 ]);
 
-passportApp.config(function($stateProvider, $urlRouterProvider) {
+ckgs.config(function($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise("/main");
     
     $stateProvider
@@ -86,11 +87,11 @@ passportApp.config(function($stateProvider, $urlRouterProvider) {
   });
 
 /* Init global settings and run the app */
-passportApp.run(["$rootScope", "$state", function($rootScope, $state) {
+ckgs.run(["$rootScope", "$state", function($rootScope, $state) {
     $rootScope.$state = $state; // state to be accessed from view
 }]);
 
-passportApp.run(function($rootScope, $templateCache) {
+ckgs.run(function($rootScope, $templateCache) {
     $rootScope.$on('$routeChangeStart', function(event, next, current) {
         if (typeof(current) !== 'undefined'){
             $templateCache.remove(current.templateUrl);
